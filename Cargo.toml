@@ -1,0 +1,46 @@
+[package]
+name = "driverexplorer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+windows = { version = "0.62", features = [
+    "Win32_System_ProcessStatus",
+    "Win32_System_Services",
+    "Win32_System_Registry",
+    "Win32_Security_WinTrust",
+    "Win32_Security_Cryptography_Catalog",
+    "Win32_Security_Cryptography_Sip",
+    "Win32_Storage_FileSystem",
+    "Win32_Foundation",
+    "Win32_System_Console",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_Security",
+    "Win32_System_Threading",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Time",
+] }
+anyhow = "1.0"
+thiserror = "2.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.6", features = ["derive"] }
+egui = "0.31"
+eframe = "0.31"
+egui_extras = { version = "0.31", features = ["image"] }
+chrono = { version = "0.4", features = ["serde"] }
+log = "0.4"
+env_logger = "0.11"
+rfd = "0.15"
+
+[build-dependencies]
+winres = "0.1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
