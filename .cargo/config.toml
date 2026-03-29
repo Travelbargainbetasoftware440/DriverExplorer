@@ -1,3 +1,0 @@
-[build]
-# Static CRT linking - may need to be disabled for development
-# rustflags = ["-C", "target-feature=+crt-static"]
